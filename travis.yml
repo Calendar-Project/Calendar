@@ -1,0 +1,14 @@
+language: ruby
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: "A+PalXZpAzcnsaIvTJP+KX9nZlYTYzfFQC/iOqdOd7Inq/a2rCxTL+YMkmkov0ln29C5iAIZKMdk5Qa9kzjJpd4mVQ9ehi4HmIv0Tl7+eZdt+Z3fkEyDJ1HZtc/NVcYt4KkfQ4rwEjpdDzNv5VavTVlhK8Lg/K63Sm02qlbooFvFTjmJJaBkRIfMgJVtIVxQlS1EZSTEf2jx4QNCGbGftdHmqBS5gYnQcsS5QJKstFknds2qup1voYeo57tuycpW2JZ7tr2x/Qlvo1GywkkDoI3DQih3W2kp9PGo1mndFgH/O0VVYKNiecq3Wh5FnUF+Lw9jjXOgzCyt0lvdHBI3CBMOA/T+jVk8Ypq13dSViaAkBAFnzCZT8kAlYURBmKYJSHGLbo3+PITbrZmqQ813mf/qFNPEFPXfRcUEh7jFGOXv5fizvBqDc7vrPmYINReM94H1pp2rdrzcGtq/DNXqH7q0HH6NvgxyVRfOGJUT2Wz9yRJhlOTmT434hiUqXZ0ZQe6iDwNWbtlEzqRZEKNZ2piI6h7tE5jzxSHB/ArAWFT1gumm3wCAlZr0EAFMu5MbrigGAJ1OMrkIZFkiV+vHnIydYVVI515lVc4adIKU8vQ2DOggnyvSXC+0dOI3wQPD26O1hrb9XUtkGsRmDF6a5iOLHG45aFWwHGAF8sHh3+k="
+  app: calendar-app-project
+  on:
+    repo: Calendar-Project/Calendar
