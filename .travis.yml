@@ -1,6 +1,9 @@
 language: ruby
 cache:
 - bundler
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-dev
 before_script:
 - bundle exec rake db:create
 - bundle exec rake db:migrate
@@ -12,3 +15,11 @@ deploy:
   app: calendar-app-project
   on:
     repo: Calendar-Project/Calendar
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $git: https://github.com/ on DESKTOP-04J2B54 at 28-Haz-2018 13:15  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
