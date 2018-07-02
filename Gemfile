@@ -9,6 +9,8 @@ gem 'rails', '~> 5.2.0'
 
 gem 'pg'
 
+gem 'thin'
+
 group :production do
 	gem 'pg'
 end
