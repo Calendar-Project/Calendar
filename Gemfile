@@ -7,9 +7,6 @@ ruby '2.4.4'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
 
-gem 'pg'
-
-gem 'thin'
 
 group :production do
 	gem 'pg'
