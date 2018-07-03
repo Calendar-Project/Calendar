@@ -1,0 +1,25 @@
+<h1>Listing Appointments</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Note</th>
+    <th>Start Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>End Date</th>
+    <th></th>
+  </tr>
+
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.title %></td>
+      <td><%= appointment.text %></td>
+      <td><%= appointment.start_date %></td>
+      <td><%= appointment.start_time %></td>
+      <td><%= appointment.end_time %></td>
+      <td><%= appointment.end_date %></td>
+      <td><%= link_to 'Show', appointment_path(appointment) %></td>
+    </tr>
+  <% end %>
+</table>
