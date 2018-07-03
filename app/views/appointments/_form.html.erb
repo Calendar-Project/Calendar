@@ -1,0 +1,36 @@
+<%= form_with model: @appointment, local: true do |form| %>
+
+<p>
+  <%= form.label :title %><br>
+  <%= form.text_field :title %>
+</p>
+
+<p>
+  <%= form.label :note %><br>
+  <%= form.text_area :text %>
+</p>
+
+<p>
+  <%= form.label :start_date %><br>
+  <%= form.text_field :start_date %>
+</p>
+
+<p>
+  <%= form.label :start_time %><br>
+  <%= form.text_field :start_time %>
+</p>
+
+<p>
+  <%= form.label :end_time %><br>
+  <%= form.text_field :end_time %>
+</p>
+
+<p>
+  <%= form.label :end_date %><br>
+  <%= form.text_field :end_date %>
+</p>
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
