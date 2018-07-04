@@ -7,9 +7,12 @@ h1 {
     color: white;
     text-align: center;
 }
-.table{
-    height: 20px;
+.row{
+    height: 40px;
     text-align: right;
+}
+.col-sm-6{
+  height: 50px;
 }
 .date{
     text-align: center;
@@ -17,7 +20,9 @@ h1 {
 </style>
 <body>
 <h1>CALENDAR</h1>
-Tarih: <input type="date" name="tarih">
+<FORM>
+  Tarih: <INPUT TYPE="date" NAME="start_date"> <INPUT TYPE="submit">
+</FORM>
 <%start_date =params.fetch(:start_date,Date.today).to_date%>
 <% date_range= (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
 <table class="table">
@@ -28,22 +33,13 @@ Tarih: <input type="date" name="tarih">
       <% end %>
     </tr>
   </thead>
-  <div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
 
-            </div>
-        </div>
-      
-    </div>
-</div>
   <tbody>
     <% date_range.each_slice(7) do |week| %>
     <tr>
       <% week.each do |day| %>
       <td>
-        <%= day%>
+        <%=day%>
       </td>
       <% end %>
     </tr>
