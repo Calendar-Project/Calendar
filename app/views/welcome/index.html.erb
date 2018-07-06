@@ -21,10 +21,16 @@ h1 {
 <body>
 <h1>CALENDAR</h1>
 <FORM>
-  Tarih: <INPUT TYPE="date" NAME="start_date"> <INPUT TYPE="submit">
+  Tarih: <INPUT TYPE="date" NAME="starting_date"> <INPUT TYPE="submit">
 </FORM>
-<%start_date =params.fetch(:start_date,Date.today).to_date%>
-<% date_range= (start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week).to_a %>
+<%starting_date =params.fetch(:starting_date,Date.today).to_date%>
+<%date_range= (starting_date.beginning_of_month.beginning_of_week..starting_date.end_of_month.end_of_week).to_a %>
+<Br/>
+<Br/>
+<%= link_to "Previous", starting_date: date_range.first - 1.day %>
+<%= I18n.t("date.month_names")[starting_date.month] %> <%= starting_date.year %>
+<%= link_to "Next", starting_date: date_range.last + 1.day %>
+
 <table class="table">
   <thead>
     <tr>
@@ -41,6 +47,9 @@ h1 {
       <td>
         <%=day.strftime("%d")%>
         <Br/>
+        <% @appointments.select{ |appointment| appointment.start_date.to_date == day }.sort_by(&:start_time).each do |appointment| %>
+<div><%= link_to appointment.title, appointment_path(appointment) %></div>
+        <% end %>
         <Br/>
         <Br/>
         <Br/>
