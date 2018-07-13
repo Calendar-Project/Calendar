@@ -5,7 +5,6 @@ ruby '2.4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
-gem 'pg'
 # Use sqlite3 as the database for Active Record
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
@@ -17,6 +16,10 @@ end
 group :development do
 	gem 'sqlite3'
 end
+gem 'grape'
+gem 'grape-swagger'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'grape-active_model_serializers'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

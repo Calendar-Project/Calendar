@@ -14,7 +14,7 @@ def show
   @appointment = Appointment.find(params[:id])
 end
   def create
-    @appointment = Appointment.new(params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_time, :end_date))
+    @appointment = Appointment.new(params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_date, :end_time))
 
   @appointment = Appointment.new(appointment_params)
     if @appointment.save
@@ -40,6 +40,6 @@ def destroy
 end
   private
   def appointment_params
-    params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_time, :end_date)
+    params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_date, :end_time)
   end
 end
