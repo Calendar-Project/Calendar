@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2018_07_03_071903) do
     t.text "text"
     t.string "start_date"
     t.string "start_time"
-    t.string "end_time"
     t.string "end_date"
+    t.string "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
