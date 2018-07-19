@@ -17,9 +17,7 @@ group :development do
 	gem 'sqlite3'
 end
 gem 'grape'
-gem 'grape-swagger'
-gem 'rack-cors', :require => 'rack/cors'
-gem 'grape-active_model_serializers'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
