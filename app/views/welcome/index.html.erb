@@ -23,23 +23,25 @@ h1 {
 <body>
 <h1>CALENDAR</h1>
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">EMMA</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a>Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
       <li class="nav-item active">
         <a class="nav-link" href="appointments">My Appointments <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+      <%= I18n.t("date.month_names")[starting_date.month] %> <%= starting_date.year %>
     </form>
   </div>
 </nav>
@@ -59,7 +61,6 @@ h1 {
 <Br/>
 <Br/>
 <%= link_to "Previous", starting_date: date_range.first - 1.day %>
-<%= I18n.t("date.month_names")[starting_date.month] %> <%= starting_date.year %>
 <%= link_to "Next", starting_date: date_range.last + 1.day %>
 <Br/>
 
