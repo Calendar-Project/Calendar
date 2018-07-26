@@ -14,6 +14,7 @@
     </div>
   <% end %>
 
+
 <p>
   <%= form.label :title %><br>
   <%= form.text_field :title %>
@@ -26,27 +27,45 @@
 
 <p>
   <%= form.label :start_date %><br>
-  <%= form.text_field :start_date, type: :date %>
+  <%= form.text_field :start_date, type: :date, id: :"theSDate", onChange: :"jsSetDatesfunction()" %>
 </p>
 
 <p>
   <%= form.label :start_time %><br>
-  <%= form.text_field :start_time, type: :time %>
+  <%= form.text_field :start_time, type: :time, id: :"theSTime", onChange: :"jsSetTimefunction()" %>
 </p>
 
 <p>
   <%= form.label :end_date %><br>
-  <%= form.text_field :end_date, type: :date %>
+  <%= form.text_field :end_date, type: :date, id: :"theEDate", min: :start_date %>
 
 </p>
 
 <p>
   <%= form.label :end_time %><br>
-  <%= form.text_field :end_time, type: :time %>
+  <%= form.text_field :end_time, type: :time, id: :"theETime" %>
 </p>
 
   <p>
     <%= form.submit %>
   </p>
+
+  <script>
+  var today = new Date();
+  document.getElementById("theSDate").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+  document.getElementById("theEDate").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+  document.getElementById("theEDate").min = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+  document.getElementById("theSTime").value="08:00";
+  document.getElementById("theETime").value="09:00";
+  document.getElementById("theETime").min="08:00";
+  function jsSetDatesfunction(){
+    var sdate=document.getElementById("theSDate").value;
+    document.getElementById("theEDate").min=sdate;
+};
+function jsSetTimefunction(){
+  var stime=document.getElementById("theSTime").value;
+  document.getElementById("theETime").min=stime;
+};
+</script>
 
 <% end %>
