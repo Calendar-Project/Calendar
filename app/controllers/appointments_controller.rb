@@ -18,7 +18,8 @@ end
 
   @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      redirect_to @appointment
+      #redirect_to @appointment
+      redirect_to root_path
     else
       render 'new'
     end
@@ -27,7 +28,8 @@ end
   @appointment = Appointment.find(params[:id])
 
   if @appointment.update(appointment_params)
-    redirect_to @appointment
+    #redirect_to @appointment
+    redirect_to root_path
   else
     render 'edit'
   end
@@ -36,8 +38,10 @@ def destroy
   @appointment = Appointment.find(params[:id])
   @appointment.destroy
 
-  redirect_to appointments_path
+#  redirect_to appointments_path
+redirect_to root_path
 end
+
   private
   def appointment_params
     params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_time, :end_date)
