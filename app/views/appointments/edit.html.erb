@@ -11,6 +11,23 @@ h1 {
 <h1>Edit Appointment</h1>
 <body>
 <%= render 'form' %>
+<script>
+
+var sdate = document.getElementById("theSDate").value;
+var edate = document.getElementById("theEDate").value;
+document.getElementById("theEDate").min = sdate;
+var stime = document.getElementById("theSTime").value;
+var etime = document.getElementById("theETime").value;
+document.getElementById("theETime").min = stime;
+function jsSetDatesfunction(){
+  var sdate2=document.getElementById("theSDate").value;
+  document.getElementById("theEDate").min=sdate2;
+};
+function jsSetTimefunction(){
+var stime2=document.getElementById("theSTime").value;
+document.getElementById("theETime").min=stime2;
+};
+</script>
 
 <%= link_to 'Back', appointments_path %>
 </body>
