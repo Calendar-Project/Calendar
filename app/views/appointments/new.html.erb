@@ -19,14 +19,28 @@ document.getElementById("theEDate").value = today.getFullYear() + '-' + ('0' + (
 document.getElementById("theEDate").min = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
 document.getElementById("theSTime").value="08:00";
 document.getElementById("theETime").value="09:00";
-document.getElementById("theETime").min="08:00";
 function jsSetDatesfunction(){
-  var sdate=document.getElementById("theSDate").value;
-  document.getElementById("theEDate").min=sdate;
+  var stime=document.getElementById("theSTime").value;
+  var sDate=document.getElementById("theSDate").value;
+  var eDate=document.getElementById("theEDate").value;
+  document.getElementById("theEDate").min=sDate;
+  if(eDate==sDate){
+    document.getElementById("theETime").min=stime;
+  }
+  else{
+    document.getElementById("theETime").min="00:00";
+  }
 };
 function jsSetTimefunction(){
 var stime=document.getElementById("theSTime").value;
-document.getElementById("theETime").min=stime;
+var sDate=document.getElementById("theSDate").value;
+var eDate=document.getElementById("theEDate").value;
+if(eDate==sDate){
+  document.getElementById("theETime").min=stime;
+}
+else{
+  document.getElementById("theETime").min="00:00";
+}
 };
 </script>
 

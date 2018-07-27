@@ -20,12 +20,27 @@ var stime = document.getElementById("theSTime").value;
 var etime = document.getElementById("theETime").value;
 document.getElementById("theETime").min = stime;
 function jsSetDatesfunction(){
-  var sdate2=document.getElementById("theSDate").value;
-  document.getElementById("theEDate").min=sdate2;
+  var stime=document.getElementById("theSTime").value;
+  var sDate=document.getElementById("theSDate").value;
+  var eDate=document.getElementById("theEDate").value;
+  document.getElementById("theEDate").min=sDate;
+  if(eDate==sDate){
+    document.getElementById("theETime").min=stime;
+  }
+  else{
+    document.getElementById("theETime").min="00:00";
+  }
 };
 function jsSetTimefunction(){
-var stime2=document.getElementById("theSTime").value;
-document.getElementById("theETime").min=stime2;
+var stime=document.getElementById("theSTime").value;
+var sDate=document.getElementById("theSDate").value;
+var eDate=document.getElementById("theEDate").value;
+if(eDate==sDate){
+  document.getElementById("theETime").min=stime;
+}
+else{
+  document.getElementById("theETime").min="00:00";
+}
 };
 </script>
 

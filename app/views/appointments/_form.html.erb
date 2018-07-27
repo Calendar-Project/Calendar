@@ -37,13 +37,13 @@
 
 <p>
   <%= form.label :end_date %><br>
-  <%= form.text_field :end_date, type: :date, id: :"theEDate", min: :start_date %>
+  <%= form.text_field :end_date, type: :date, id: :"theEDate", onChange: :"jsSetDatesfunction()" %>
 
 </p>
 
 <p>
   <%= form.label :end_time %><br>
-  <%= form.text_field :end_time, type: :time, id: :"theETime" %>
+  <%= form.text_field :end_time, type: :time, id: :"theETime", onChange: :"jsSetTimefunction()"%>
 </p>
 
   <p>
