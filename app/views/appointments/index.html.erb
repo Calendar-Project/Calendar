@@ -1,3 +1,29 @@
+<style>
+
+body {
+    background-color: #c0c3c5;
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+.container-fluid{
+    color: #5f6d6e;
+}
+
+
+.row{
+    height: 40px;
+    text-align: right;
+}
+.col-sm-6{
+  height: 50px;
+}
+.date{
+    text-align: center;
+}
+</style>
+<body>
 <h1>Listing Appointments</h1>
 
 <%= link_to 'New Appointment', new_appointment_path %>
@@ -29,3 +55,4 @@
   <% end %>
 </table>
 <%= link_to 'Home', root_path %>
+</body>
