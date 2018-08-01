@@ -7,52 +7,85 @@ h1 {
     color: white;
     text-align: center;
 }
-.container-fluid{
-    color: #5f6d6e;
-}
-
-
-.row{
-    height: 40px;
-    text-align: right;
-}
-.col-sm-6{
-  height: 50px;
-}
-.date{
-    text-align: center;
-}
 </style>
+
 <body>
 <h1>Listing Appointments</h1>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">EMMA</a>
+    </div>
 
-<%= link_to 'New Appointment', new_appointment_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Note</th>
-    <th>Start Date</th>
-    <th>Start Time</th>
-    <th>End Time</th>
-    <th>End Date</th>
-    <th></th>
-  </tr>
 
-  <% @appointments.each do |appointment| %>
-    <tr>
-      <td><%= appointment.title %></td>
-      <td><%= appointment.text %></td>
-      <td><%= appointment.start_date %></td>
-      <td><%= appointment.start_time %></td>
-      <td><%= appointment.end_date %></td>
-      <td><%= appointment.end_time %></td>
-      <td><%= link_to 'Show', appointment_path(appointment) %></td>
-      <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-      <td><%= link_to 'Destroy', appointment_path(appointment),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to 'Home', root_path %>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="">My Appointments</a></li>
+        <li class="dropdown">
+          <tr><%= link_to 'Home', root_path %></tr>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="appointments/new">New Appointment <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</nav>
+
+
+<div class="container" >
+  	<div class="row" style="height:250px;overflow:scroll;overflow:auto;margin-bottom:50px;margin-top:20px">
+  		  <div class="col-md-12">
+          <div class="table-responsive">
+            <table id="scrolltable" class="table table-bordred table-striped">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Note</th>
+                  <th>Start Date</th>
+                  <th>Start Time</th>
+                  <th>End Date</th>
+                  <th>End Time</th>
+
+                  <th colspan="4"> Action</th>
+
+                </tr>
+              </thead>
+              <tbody id="parent">
+            <% @appointments.each do |appointment| %>
+              <tr>
+                <td><%= appointment.title %></td>
+                <td><%= appointment.text %></td>
+                <td><%= appointment.start_date %></td>
+                <td><%= appointment.start_time %></td>
+                <td><%= appointment.end_date %></td>
+                <td><%= appointment.end_time %></td>
+                <td><%= link_to 'Show', appointment_path(appointment) %></td>
+                <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+                <td><%= link_to 'Destroy', appointment_path(appointment),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+                </td>
+                <td><%= link_to 'Repeat', recursive_path(appointment) %></td>
+              </tr>
+            <% end %>
+
+            </tbody>
+        </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </body>
