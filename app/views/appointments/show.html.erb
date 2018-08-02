@@ -1,36 +1,83 @@
-<p>
-  <strong>Title:</strong>
-  <%= @appointment.title %>
-</p>
+<style>
+body {
+    background-color: #c0c3c5;
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+</style>
 
-<p>
-  <strong>Note:</strong>
-  <%= @appointment.text %>
-</p>
-
-<p>
-  <strong>Start Date:</strong>
-  <%= @appointment.start_date %>
-</p>
-
-<p>
-  <strong>Start Time:</strong>
-  <%= @appointment.start_time %>
-</p>
-
-<p>
-  <strong>End Date:</strong>
-  <%= @appointment.end_date %>
-</p>
-
-<p>
-  <strong>End Time:</strong>
-  <%= @appointment.end_time %>
-</p>
+<body>
+  <h1>Appointment Details</h1>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">EMMA</a>
+      </div>
 
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Home', root_path %>
-<%= link_to 'Destroy', appointment_path(@appointment),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="">Appointment Details</a></li>
+          <li class="dropdown">
+            <tr><%= link_to 'Home', root_path %></tr>
+          </li>
+          <li class="dropdown">
+            <tr><%= link_to 'Back',appointments_path%></tr>
+          </li>
+
+          <li class="dropdown">
+            <tr><%= link_to 'Destroy', appointment_path(@appointment),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+            </tr>
+          </li>
+          <li class="dropdown">
+            <tr><%= link_to 'Edit', edit_appointment_path(@appointment) %></tr>
+          </li>
+
+        </ul>
+      </div>
+
+
+    </div>
+  </nav>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Title </th>
+        <td><%= @appointment.title %></td>
+      </tr>
+      <tr>
+        <th scope="row">Note </th>
+        <td><%= @appointment.text %></td>
+      </tr>
+      <tr>
+        <th scope="row">Start Date </th>
+        <td><%= @appointment.start_date %></td>
+      </tr>
+      <tr>
+        <th scope="row">Start Time </th>
+        <td><%= @appointment.start_time %></td>
+      </tr>
+      <tr>
+        <th scope="row">End Date </th>
+        <td><%= @appointment.end_date %></td>
+      </tr>
+      <tr>
+        <th scope="row">End Time </th>
+        <td><%= @appointment.end_time %></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+</body>
