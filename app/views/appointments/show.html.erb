@@ -36,6 +36,7 @@ h1 {
             <tr><%= link_to 'Destroy', appointment_path(@appointment),
                     method: :delete,
                     data: { confirm: 'Are you sure?' } %>
+                    <%= button_to "delete", appointment_path(@appointment), :method => "delete" %>
             </tr>
           </li>
           <li class="dropdown">
