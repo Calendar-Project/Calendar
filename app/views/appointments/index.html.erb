@@ -32,12 +32,14 @@ h1 {
         <li class="dropdown">
          <%= link_to 'New Appointment',new_appointment_path %> <span class="sr-only">(current)</span></a>
         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li>
-        <%= form_tag(appointments_path, :method => "get") do%>
-        <%= text_field_tag :search, params[:search], placeholder: "Search"%>
-        <%= submit_tag "Search", :title => nil %>
-        <%end%>
-      </li>
+          <%= form_tag(appointments_path, :method => "get") do%>
+            <%= text_field_tag :search, params[:search], placeholder: "Search"%>
+            <%= submit_tag "Search", :title => nil %>
+          <%end%>
+        </li>
       </ul>
     </div>
 

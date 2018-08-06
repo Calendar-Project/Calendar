@@ -1,9 +1,13 @@
 <style>
+  .solbolum{
+    float:left;
+    border-right: 1px solid #ccc;
+  }
+  .sagbolum{
+    float:right;
+  }
   .title{
     padding-left: 50px;
-  }
-  .title_field{
-    padding-left: 100px;
   }
   .note{
     padding-left: 50px;
@@ -36,43 +40,52 @@
       </ul>
     </div>
   <% end %>
-<div class="title">
-<p>
-  <%= form.label :title %>
-</p >
+<div class="bordr">
+  <div class="solbolum">
+    <p class="title">
+      <%= form.label :title %>:
+    </p>
+    <p class="note">
+      <%= form.label :note %>:
+    </p>
+    <p class="start_date">
+      <%= form.label :start_date %>:
+    </p>
+    <p class="start_time">
+      <%= form.label :start_time %>:
+    </p>
+    <p class="end_date">
+      <%= form.label :end_date %>:
+    </p>
+    <p class="end_time">
+      <%= form.label :end_time %>:
+    </p>
+  </div>
+  <div class="sagbolum">
+    <p class="titletxt">
+      <%= form.text_field :title %>
+    </div>
+    <p class="notetxt">
+      <%= form.text_area :text %>
+    </p>
+    <p class="start_datetxt">
+      <%= form.text_field :start_date, type: :date, id: :"theSDate", onChange: :"jsSetDatesfunction()" %>
+    </p>
+    <p class="start_timetxt">
+      <%= form.text_field :start_time, type: :time, id: :"theSTime", onChange: :"jsSetTimefunction()" %>
+    </p>
 
-  <%= form.text_field :title %>
+    <p class="end_datetxt">
+      <%= form.text_field :end_date, type: :date, id: :"theEDate", onChange: :"jsSetDatesfunction()" %>
+    </p>
+    <p class="end_timetxt">
+      <%= form.text_field :end_time, type: :time, id: :"theETime", onChange: :"jsSetTimefunction()"%>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  </div>
 </div>
-<p class="note">
-  <%= form.label :note %>
-  <%= form.text_area :text %>
-</p>
 
-<p class="start_date">
-  <%= form.label :start_date %>
-  <%= form.text_field :start_date, type: :date, id: :"theSDate", onChange: :"jsSetDatesfunction()" %>
-</p>
-
-<p class="start_time">
-  <%= form.label :start_time %>
-  <%= form.text_field :start_time, type: :time, id: :"theSTime", onChange: :"jsSetTimefunction()" %>
-</p>
-
-<p class="end_date">
-  <%= form.label :end_date %>
-  <%= form.text_field :end_date, type: :date, id: :"theEDate", onChange: :"jsSetDatesfunction()" %>
-
-</p>
-
-<p class="end_time">
-  <%= form.label :end_time %>
-  <%= form.text_field :end_time, type: :time, id: :"theETime", onChange: :"jsSetTimefunction()"%>
-</p>
-
-
-
-  <p>
-    <%= form.submit %>
-  </p>
 
 <% end %>
