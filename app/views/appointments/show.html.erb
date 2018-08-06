@@ -32,13 +32,7 @@ h1 {
             <tr><%= link_to 'Back',appointments_path%></tr>
           </li>
 
-          <li class="dropdown">
-            <tr><%= link_to 'Destroy', appointment_path(@appointment),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %>
-                    <%= button_to "delete", appointment_path(@appointment), :method => "delete" %>
-            </tr>
-          </li>
+
           <li class="dropdown">
             <tr><%= link_to 'Edit', edit_appointment_path(@appointment) %></tr>
           </li>
@@ -48,6 +42,7 @@ h1 {
           <li class="dropdown">
             <tr><%= link_to 'Repeat Monthly', repeat_monthly_appointment_path(@appointment) %></tr>
           </li>
+
 
         </ul>
       </div>
@@ -85,6 +80,7 @@ h1 {
   </table>
 
 
+  <%= button_to "Delete", appointment_path(@appointment), :method => "delete" %>
 
 
 </body>
