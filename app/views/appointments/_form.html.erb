@@ -1,3 +1,26 @@
+<style>
+  .title{
+    padding-left: 50px;
+  }
+  .title_field{
+    padding-left: 100px;
+  }
+  .note{
+    padding-left: 50px;
+  }
+  .start_date{
+    padding-left: 50px;
+  }
+  .start_time{
+    padding-left: 50px;
+  }
+  .end_date{
+    padding-left: 50px;
+  }
+  .end_time{
+    padding-left: 50px;
+  }
+</style>
 <%= form_with model: @appointment, local: true do |form| %>
 
 <% if @appointment.errors.any? %>
@@ -13,36 +36,36 @@
       </ul>
     </div>
   <% end %>
-
-
+<div class="title">
 <p>
-  <%= form.label :title %><br>
+  <%= form.label :title %>
+</p >
+
   <%= form.text_field :title %>
-</p>
-
-<p>
-  <%= form.label :note %><br>
+</div>
+<p class="note">
+  <%= form.label :note %>
   <%= form.text_area :text %>
 </p>
 
-<p>
-  <%= form.label :start_date %><br>
+<p class="start_date">
+  <%= form.label :start_date %>
   <%= form.text_field :start_date, type: :date, id: :"theSDate", onChange: :"jsSetDatesfunction()" %>
 </p>
 
-<p>
-  <%= form.label :start_time %><br>
+<p class="start_time">
+  <%= form.label :start_time %>
   <%= form.text_field :start_time, type: :time, id: :"theSTime", onChange: :"jsSetTimefunction()" %>
 </p>
 
-<p>
-  <%= form.label :end_date %><br>
+<p class="end_date">
+  <%= form.label :end_date %>
   <%= form.text_field :end_date, type: :date, id: :"theEDate", onChange: :"jsSetDatesfunction()" %>
 
 </p>
 
-<p>
-  <%= form.label :end_time %><br>
+<p class="end_time">
+  <%= form.label :end_time %>
   <%= form.text_field :end_time, type: :time, id: :"theETime", onChange: :"jsSetTimefunction()"%>
 </p>
 
