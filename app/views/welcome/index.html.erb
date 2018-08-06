@@ -30,8 +30,13 @@ h1 {
         <li class="dropdown">
           <%= link_to 'My Appointments', controller: 'appointments' %> <span class="sr-only">(current)</span></a>
         </li>
+<<<<<<< HEAD
     
       </ul>
+=======
+
+    </ul>
+>>>>>>> cca1395ba6ca82511346e11a44cc0aa127a394e1
     </div>
 
   </div>
@@ -40,15 +45,15 @@ h1 {
 
 
 
+<%starting_date =params.fetch(:starting_date,Date.today).to_date%>
+<%date_range= (starting_date.beginning_of_month.beginning_of_week..starting_date.end_of_month.end_of_week).to_a %>
 
 <FORM>
-  Tarih: <INPUT TYPE="date" NAME="starting_date" VALUE="<%= Time.now.strftime('%Y-%m-%d') %>" /> <INPUT TYPE="submit">
+  Tarih: <INPUT TYPE="date" NAME="starting_date" VALUE="<%= starting_date%>" ID="picker1" onchange="redesignfunction()"/> <INPUT TYPE="submit" onclick="resubfunction()">
 </FORM>
 
 
 
-<%starting_date =params.fetch(:starting_date,Date.today).to_date%>
-<%date_range= (starting_date.beginning_of_month.beginning_of_week..starting_date.end_of_month.end_of_week).to_a %>
 <%= link_to "Previous", starting_date: date_range.first - 1.day %>
 <%= link_to "Next", starting_date: date_range.last + 1.day %>
 
