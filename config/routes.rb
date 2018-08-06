@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'repeat_monthly'
   end
 end
+get '/appointments/:appointment_id' => 'appointments#destroy'
   root 'welcome#index'
 
 

@@ -34,8 +34,8 @@ h1 {
 
           <li class="dropdown">
             <tr><%= link_to 'Destroy', appointment_path(@appointment),
-                    method: :delete
-                     %>
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
             </tr>
           </li>
           <li class="dropdown">
