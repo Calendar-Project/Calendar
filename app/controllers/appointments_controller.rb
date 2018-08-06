@@ -13,6 +13,12 @@ def show
   def edit
   @appointment = Appointment.find(params[:id])
 end
+def repeat_weekly
+@appointment = Appointment.find(params[:id])
+end
+def repeat_monthly
+@appointment = Appointment.find(params[:id])
+end
   def create
     @appointment = Appointment.new(params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_time, :end_date))
 
