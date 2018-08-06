@@ -13,6 +13,7 @@ class AppointmentsController < ApplicationController
 
   def edit
   @appointment = Appointment.find(params[:id])
+<<<<<<< HEAD
   end
 
   def repeat_weekly
@@ -27,6 +28,15 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.search(params[:search])
   end
 
+=======
+end
+def repeat_weekly
+@appointment = Appointment.find(params[:id])
+end
+def repeat_monthly
+@appointment = Appointment.find(params[:id])
+end
+>>>>>>> ce3cc722ea14c7c6e5f633020c82410435ef1938
   def create
     @appointment = Appointment.new(params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_time, :end_date))
 

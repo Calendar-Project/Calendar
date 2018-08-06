@@ -1,0 +1,14 @@
+<h1>Repeat Appointments Monthly</h1>
+<%= render 'form_repeat' %>
+
+<% start_date = @appointment.start_date.to_date %>
+<% end_date = @appointment.start_date.to_date.end_of_year%>
+ <% my_days = [@appointment.start_date.to_date.mday]%>
+  <% result = (start_date +1.day..end_date).to_a.select {|k| my_days.include?(k.mday)}%>
+  <% fark=@appointment.end_date.to_date - @appointment.start_date.to_date %>
+
+  <h6>Repeated events succesfully created every month for a year in the given dates:</h6>
+  <% result.slice(0,7).each do |day| %>
+      <% Appointment.create( title:@appointment.title, text: @appointment.text, start_date:day, start_time:@appointment.start_time, end_date:day + fark.day, end_time:@appointment.end_time )%>
+      <p><%= day %></p>
+  <% end %>
