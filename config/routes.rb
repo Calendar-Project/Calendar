@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     member do
       get 'repeat_weekly'
       get 'repeat_monthly'
-      get 'search'
+
     end
   end
 

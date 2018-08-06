@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   def index
-     @appointments = Appointment.all
-   end
+  @appointments = Appointment.all
+end
 
    def show
      @appointment = Appointment.find(params[:id])
@@ -21,10 +21,6 @@ class AppointmentsController < ApplicationController
 
   def repeat_monthly
     @appointment = Appointment.find(params[:id])
-  end
-
-  def search
-    @appointments = Appointment.all
   end
 
   def create
