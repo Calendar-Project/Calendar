@@ -31,54 +31,52 @@ h1 {
           <li class="dropdown">
             <tr><%= link_to 'Back',appointments_path%></tr>
           </li>
-
-          <li class="dropdown">
-            <tr><%= link_to 'Destroy', appointment_path(@appointment),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %>
-            </tr>
-          </li>
-          <li class="dropdown">
-            <tr><%= link_to 'Edit', edit_appointment_path(@appointment) %></tr>
-          </li>
-
-
         </ul>
       </div>
 
-
     </div>
   </nav>
-  <table class="table">
-    <tbody>
-      <tr>
-        <th scope="row">Title </th>
-        <td><%= @appointment.title %></td>
-      </tr>
-      <tr>
-        <th scope="row">Note </th>
-        <td><%= @appointment.text %></td>
-      </tr>
-      <tr>
-        <th scope="row">Start Date </th>
-        <td><%= @appointment.start_date %></td>
-      </tr>
-      <tr>
-        <th scope="row">Start Time </th>
-        <td><%= @appointment.start_time %></td>
-      </tr>
-      <tr>
-        <th scope="row">End Date </th>
-        <td><%= @appointment.end_date %></td>
-      </tr>
-      <tr>
-        <th scope="row">End Time </th>
-        <td><%= @appointment.end_time %></td>
-      </tr>
-    </tbody>
-  </table>
 
+  <div class="container" >
+    	<div class="row" style="height:250px;overflow:scroll;overflow:auto;margin-bottom:50px;margin-top:20px">
+    		  <div class="col-md-12">
+            <div class="table-responsive">
+              <table id="scrolltable" class="table table-bordred table-striped">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Note</th>
+                    <th>Start Date</th>
+                    <th>Start Time</th>
+                    <th>End Date</th>
+                    <th>End Time</th>
 
+                    <th colspan="4"> Action</th>
+
+                  </tr>
+                </thead>
+                <tbody id="parent">
+              <% @appointments.each do |appointment| %>
+                <tr>
+                  <td><%= appointment.title %></td>
+                  <td><%= appointment.text %></td>
+                  <td><%= appointment.start_date %></td>
+                  <td><%= appointment.start_time %></td>
+                  <td><%= appointment.end_date %></td>
+                  <td><%= appointment.end_time %></td>
+                  <td><%= link_to 'Show', appointment_path(appointment) %></td>
+                  <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+
+                </tr>
+              <% end %>
+
+              </tbody>
+          </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 </body>

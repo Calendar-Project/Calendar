@@ -1,6 +1,11 @@
 class AppointmentsController < ApplicationController
   def index
      @appointments = Appointment.all
+     if params[:search]
+       @appointments = Appointment.search(params[:search]).order("created_at DESC")
+     else
+       @appointments = Appointment.all.order("created_at DESC")
+     end
    end
 
    def show
@@ -13,7 +18,7 @@ class AppointmentsController < ApplicationController
 
   def edit
   @appointment = Appointment.find(params[:id])
-<<<<<<< HEAD
+
   end
 
   def repeat_weekly
@@ -23,20 +28,16 @@ class AppointmentsController < ApplicationController
   def repeat_monthly
     @appointment = Appointment.find(params[:id])
   end
-
-  def search
-    @appointments = Appointment.search(params[:search])
+  def self.search(search)
+    if search
+      search.where("title like?","%#{search}%")
+    else
+      self.all
+    end
   end
 
-=======
-end
-def repeat_weekly
-@appointment = Appointment.find(params[:id])
-end
-def repeat_monthly
-@appointment = Appointment.find(params[:id])
-end
->>>>>>> ce3cc722ea14c7c6e5f633020c82410435ef1938
+
+
   def create
     @appointment = Appointment.new(params.require(:appointment).permit(:title, :text, :start_date, :start_time, :end_time, :end_date))
 
