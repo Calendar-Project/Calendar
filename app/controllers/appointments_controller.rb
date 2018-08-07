@@ -28,13 +28,7 @@ class AppointmentsController < ApplicationController
   def repeat_monthly
     @appointment = Appointment.find(params[:id])
   end
-  def self.search(search)
-    if search
-      search.where("title like?","%#{search}%")
-    else
-      self.all
-    end
-  end
+  
 
 
 

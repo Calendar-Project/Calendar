@@ -4,7 +4,7 @@
     border-right: 1px solid #ccc;
   }
   .sagbolum{
-    float:right;
+    float:left;
   }
   .title{
     padding-left: 50px;
@@ -64,9 +64,9 @@
   <div class="sagbolum">
     <p class="titletxt">
       <%= form.text_field :title %>
-    </div>
+    </p>
     <p class="notetxt">
-      <%= form.text_area :text %>
+      <%= form.text_field :text %>
     </p>
     <p class="start_datetxt">
       <%= form.text_field :start_date, type: :date, id: :"theSDate", onChange: :"jsSetDatesfunction()" %>
